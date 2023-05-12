@@ -38,6 +38,7 @@ public class Person {
     @OneToMany(mappedBy = "person1")
     @JsonIgnore
     private List<Event> eventList = new ArrayList<>();
+    private String comments;
     @Column(name = "created_on", updatable = false)
     @JsonIgnore
     private LocalDateTime createdOn;

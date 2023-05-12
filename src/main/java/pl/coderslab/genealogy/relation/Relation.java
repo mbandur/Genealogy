@@ -30,6 +30,7 @@ public class Relation {
     @Enumerated(EnumType.STRING)
     @Column(name = "relation_type_2", nullable = false)
     private RelationType relationType2;
+    private String comments;
     @Column(name = "created_on", updatable = false)
     @JsonIgnore
     private LocalDateTime createdOn;
