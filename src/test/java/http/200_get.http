@@ -1,0 +1,26 @@
+### Get person by id = 1
+GET http://localhost:8080/persons/1
+
+### Get all person
+GET http://localhost:8080/persons
+
+
+### Get relation by id = 1
+GET http://localhost:8080/relations/1
+
+### Get all relation
+GET http://localhost:8080/relations
+
+
+### Get document by id = 1
+GET http://localhost:8080/documents/1
+
+### Get all documents
+GET http://localhost:8080/documents
+
+
+### Get event by id = 1
+GET http://localhost:8080/events/1
+
+### Get all events
+GET http://localhost:8080/events

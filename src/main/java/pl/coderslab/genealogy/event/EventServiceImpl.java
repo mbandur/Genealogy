@@ -2,34 +2,65 @@ package pl.coderslab.genealogy.event;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.coderslab.genealogy.exception.ResourceAlreadyExistException;
+import pl.coderslab.genealogy.exception.ResourceNotFoundException;
+import pl.coderslab.genealogy.person.Person;
+import pl.coderslab.genealogy.person.PersonRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class EventServiceImpl implements EventService {
+
+    private final EventRepository eventRepository;
+    private final PersonRepository personRepository;
+    private final EventMapper eventMapper;
+
     @Override
     public EventDTOResponse find(Long id) {
-        return null;
+        return eventRepository.findById(id)
+                .map(eventMapper::mapToEventDTO)
+                .orElseThrow(() -> ResourceNotFoundException.forId(id.toString()));
     }
-
     @Override
     public List<EventDTOResponse> findAll() {
-        return null;
+        return eventRepository.findAll().stream()
+                .map(eventMapper::mapToEventDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public EventDTOResponse update(EventDTORequest event) {
-        return null;
+    public EventDTOResponse create(EventDTORequest eventDTORequest) {
+        Person person1 = personRepository.findById(eventDTORequest.person1()).orElseThrow(() -> ResourceNotFoundException.forId(eventDTORequest.id().toString()));
+        eventRepository.findEventByPerson1AndEventType(
+                        person1, eventDTORequest.eventType())
+                .ifPresent(s -> {
+                            throw ResourceAlreadyExistException.forId(
+                                    s.getId().toString());
+                        }
+                );
+        Event eventToSave = eventMapper.mapFromEventDTORequest(eventDTORequest, person1);
+        Event event = eventRepository.save(eventToSave);
+        return eventMapper.mapToEventDTO(event);
     }
 
-    @Override
-    public EventDTOResponse create(EventDTORequest event) {
-        return null;
+    public EventDTOResponse update(EventDTORequest eventDTORequest) {
+        Person person1 = personRepository.findById(eventDTORequest.person1()).orElseThrow(() -> ResourceNotFoundException.forId(eventDTORequest.id().toString()));
+        eventRepository.findById(eventDTORequest.id()).orElseThrow(() -> ResourceNotFoundException.forId(eventDTORequest.id().toString()));
+        Event eventToSave = eventMapper.mapFromEventDTORequest(eventDTORequest, person1);
+        Event event = eventRepository.save(eventToSave);
+        return eventMapper.mapToEventDTO(event);
     }
 
-    @Override
     public boolean delete(Long id) {
-        return false;
+        eventRepository.findById(id)
+                .ifPresentOrElse(
+                        eventRepository::delete,
+                        () -> {
+                            throw ResourceNotFoundException.forId(id.toString());
+                        });
+        return true;
     }
 }

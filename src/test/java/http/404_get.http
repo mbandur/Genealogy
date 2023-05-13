@@ -1,0 +1,11 @@
+### Get person by id = 11
+GET http://localhost:8080/persons/11
+
+### Get relation by id = 11
+GET http://localhost:8080/relations/11
+
+### Get document by id = 11
+GET http://localhost:8080/documents/11
+
+### Get event by id = 11
+GET http://localhost:8080/events/11

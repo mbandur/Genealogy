@@ -1,0 +1,221 @@
+### Create person = 1
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Cezaryy",
+  "secondName": "Dawid",
+  "lastName": "Bandurowicz",
+  "sex": "M",
+  "comments": "person comments"
+}
+
+### Create person = 2
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Elżbieta",
+  "secondName": "Maria",
+  "lastName": "Bandurowicz",
+  "maidenName": "Kuch",
+  "sex": "F",
+  "comments": "person comments 2"
+}
+
+### Create person = 3
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Mariusz",
+  "lastName": "Bandurowicz",
+  "sex": "M",
+  "comments": "person comments 3"
+}
+
+### Create person = 4
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Damian",
+  "lastName": "Bandurowicz",
+  "sex": "M",
+  "comments": "person comments 4"
+}
+
+### Create person = 5
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Szczepan",
+  "lastName": "Bandurowicz",
+  "sex": "M",
+  "comments": "person comments 5"
+}
+
+### Create person = 6
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Wiesława",
+  "lastName": "Bandurowicz",
+  "sex": "F",
+  "comments": "person comments 6"
+}
+
+### Create person = 7
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Agnieszka",
+  "lastName": "Bandurowicz",
+  "sex": "F",
+  "comments": "person comments 7"
+}
+
+
+
+### Create relation = 1
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 1,
+  "person2": 2,
+  "relationType1": "husband",
+  "relationType2": "wife",
+  "comments": "relation comments 1"
+}
+
+### Create relation = 2
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 1,
+  "person2": 3,
+  "relationType1": "siblings",
+  "relationType2": "siblings",
+  "comments": "relation comments"
+}
+
+### Create relation = 3
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 1,
+  "person2": 4,
+  "relationType1": "father",
+  "relationType2": "children",
+  "comments": "relation comments 3"
+}
+
+### Create relation = 4
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 1,
+  "person2": 5,
+  "relationType1": "children",
+  "relationType2": "father",
+  "comments": "relation comments 4"
+}
+
+### Create relation = 5
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 1,
+  "person2": 6,
+  "relationType1": "children",
+  "relationType2": "mother",
+  "comments": "person comments 5"
+}
+
+### Create relation = 6
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 1,
+  "person2": 7,
+  "relationType1": "siblings",
+  "relationType2": "siblings",
+  "comments": "person comments 6"
+}
+
+### Create relation = 7
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 7,
+  "person2": 6,
+  "relationType1": "children",
+  "relationType2": "mother",
+  "comments": "person comments 7"
+}
+
+
+
+### Create document = 1
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "BIRTH_CERTIFICATE",
+  "comments": "akt urodzenia"
+}
+
+### Create document = 2
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "DEATH_CERTIFICATE",
+  "comments": "akt małżeństwa przed up"
+}
+
+### Create document = 3
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "ID_DOCUMENT",
+  "comments": "koperta dowodowa"
+}
+
+
+
+### Create event = 1
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "eventDate": "1960-12-31",
+  "eventType": "BIRTH",
+  "comments": "urodzona przed up"
+}
+
+### Create event = 2
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "eventDate": "1980-12-31",
+  "eventType": "DEATH",
+  "comments": "ślub przed up"
+}

@@ -1,0 +1,49 @@
+### popraw komunikat
+### relations
+### 1==1 żle
+### null ??? -> przez walidację
+### niezgodne typy w enum
+
+
+### Create next relation 1 to 2
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 1,
+  "person2": 2,
+  "relationType1": "husband",
+  "relationType2": "wife"
+}
+
+### Create next relation 1 to 1
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 1,
+  "person2": 1,
+  "relationType1": "husband",
+  "relationType2": "wife"
+}
+
+### Crete next same document = 2
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "BIRTH_CERTIFICATE",
+  "comments": "akt urodzenia"
+}
+
+### Create next same event = 1
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "eventDate": "1960-12-31",
+  "eventType": "BIRTH",
+  "comments": "urodzona przed up"
+}
