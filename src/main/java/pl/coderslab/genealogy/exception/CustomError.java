@@ -25,10 +25,24 @@ public class CustomError {
         this();
         this.message = t.getLocalizedMessage();
     }
-
     public CustomError(ResourceNotFoundException resourceNotFoundException) {
         this();
         this.code = resourceNotFoundException.getErrorCode();
         this.message = resourceNotFoundException.getLocalizedMessage();
+    }
+    public CustomError(RelationAlreadyExistException relationAlreadyExistException) {
+        this();
+        this.code = relationAlreadyExistException.getErrorCode();
+        this.message = relationAlreadyExistException.getLocalizedMessage();
+    }
+    public CustomError(RelationBadException relationBadException) {
+        this();
+        this.code = relationBadException.getErrorCode();
+        this.message = relationBadException.getLocalizedMessage();
+    }
+    public CustomError(ResourceAlreadyExistException resourceAlreadyExistException) {
+        this();
+        this.code = resourceAlreadyExistException.getErrorCode();
+        this.message = resourceAlreadyExistException.getLocalizedMessage();
     }
 }
