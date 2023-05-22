@@ -21,7 +21,7 @@ public class Document {
     @ManyToOne
     private Person person1;
     @Column(nullable = false)
-    private DocumentType documentType;
+    private String documentType;
     private String comments;
     @Column(name = "created_on", updatable = false)
     @JsonIgnore

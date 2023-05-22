@@ -4,9 +4,9 @@ Content-Type: application/json
 
 {
   "firstName": "Cezary",
-  "lastName": "Bandurowicz",
+  "lastName": "Nowak",
   "sex": "M",
-  "comments": "person comments 1"
+  "comments": "person 1 comments update"
 }
 
 ### Update relation = 2
@@ -18,7 +18,7 @@ Content-Type: application/json
   "person2": 3,
   "relationType1": "father",
   "relationType2": "children",
-  "comments": "relation comments 2"
+  "comments": "relation 2 comments"
 }
 
 ### Update document = 2

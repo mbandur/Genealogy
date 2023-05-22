@@ -1,11 +1,11 @@
-### Delete person = 11
-DELETE http://localhost:8080/persons/11
+### Delete person = 21
+DELETE http://localhost:8080/persons/21
 
-### Delete relation = 11
-DELETE http://localhost:8080/relations/11
+### Delete relation = 21
+DELETE http://localhost:8080/relations/21
 
-### Delete document = 11
-DELETE http://localhost:8080/documents/11
+### Delete document = 21
+DELETE http://localhost:8080/documents/21
 
-### Delete events = 11
-DELETE http://localhost:8080/events/11
+### Delete events = 21
+DELETE http://localhost:8080/events/21

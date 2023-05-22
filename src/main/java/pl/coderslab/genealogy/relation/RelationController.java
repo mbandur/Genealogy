@@ -3,6 +3,7 @@ package pl.coderslab.genealogy.relation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,12 +23,12 @@ public class RelationController {
     }
 
     @PostMapping
-    public RelationDTOResponse create(@RequestBody RelationDTORequest relationDTORequest) {
+    public RelationDTOResponse create(@Valid @RequestBody RelationDTORequest relationDTORequest) {
         return relationService.create(relationDTORequest);
     }
 
     @PutMapping("/{id}")
-    public RelationDTOResponse update(@PathVariable Long id, @RequestBody RelationDTORequest relationDTORequest) {
+    public RelationDTOResponse update(@PathVariable Long id, @Valid @RequestBody RelationDTORequest relationDTORequest) {
         return relationService.update(relationDTORequest.withId(id));
     }
 

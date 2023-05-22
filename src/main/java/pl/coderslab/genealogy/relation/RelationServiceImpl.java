@@ -10,9 +10,7 @@ import pl.coderslab.genealogy.divide_relations.DivideRelationsService;
 import pl.coderslab.genealogy.person.Person;
 import pl.coderslab.genealogy.person.PersonRepository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -46,7 +44,6 @@ public class RelationServiceImpl implements RelationService {
                     person1.getId().toString(), person2.getId().toString()
             );
         }
-
         List<DivideRelationsDTO> divideRelationsDTOList = divideRelationsService.findAllRelationsByPerson(person1);
         divideRelationsDTOList.stream()
                 .filter(f -> f.person2().getId() == person2.getId())

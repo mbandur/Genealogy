@@ -21,8 +21,7 @@ public class PersonController {
 
     @GetMapping
     public List<PersonDTO> findAll() {
-        List<PersonDTO> listPersonDTO = personService.findAll();
-        return listPersonDTO;
+        return personService.findAll();
     }
 
     @PostMapping
@@ -31,7 +30,7 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public PersonDTO update(@PathVariable Long id, @RequestBody PersonDTO person) {
+    public PersonDTO update(@PathVariable Long id, @Valid @RequestBody PersonDTO person) {
         return personService.update(person.withId(id));
     }
 

@@ -10,7 +10,7 @@ public record EventDTOResponse(
         Person person1,
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         LocalDate eventDate,
-        EventType eventType,
+        String eventType,
         String comments
 ) {
     public EventDTOResponse withId(Long id) {

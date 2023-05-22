@@ -30,8 +30,7 @@ public class Person {
     @Column(nullable = true, length = 20, name = "maiden_nane")
     private String maidenName;
     @Column(name = "sex", nullable = false, length = 1)
-    @Enumerated(EnumType.STRING)
-    private Sex sex;
+    private String sex;
     @OneToMany(mappedBy = "person1")
     @JsonIgnore
     private List<Document> documentList = new ArrayList<>();

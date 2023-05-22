@@ -3,6 +3,7 @@ package pl.coderslab.genealogy.document;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,12 +23,12 @@ public class DocumentController {
     }
 
     @PostMapping
-    public DocumentDTOResponse create(@RequestBody DocumentDTORequest documentDTORequest) {
+    public DocumentDTOResponse create(@Valid @RequestBody DocumentDTORequest documentDTORequest) {
         return documentService.create(documentDTORequest);
     }
 
     @PutMapping("/{id}")
-    public DocumentDTOResponse update(@PathVariable Long id, @RequestBody DocumentDTORequest documentDTORequest) {
+    public DocumentDTOResponse update(@PathVariable Long id, @Valid @RequestBody DocumentDTORequest documentDTORequest) {
         return documentService.update(documentDTORequest.withId(id));
     }
 

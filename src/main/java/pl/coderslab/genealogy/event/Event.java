@@ -24,7 +24,7 @@ public class Event {
     @ManyToOne
     private Person person1;
     @Column(nullable = false)
-    private EventType eventType;
+    private String eventType;
     private String comments;
     @Column(name = "created_on", updatable = false)
     @JsonIgnore

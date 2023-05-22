@@ -5,7 +5,7 @@ import pl.coderslab.genealogy.person.Person;
 public record DocumentDTOResponse(
         Long id,
         Person person1,
-        DocumentType documentType,
+        String documentType,
         String comments
 ) {
     public DocumentDTOResponse withId(Long id) {

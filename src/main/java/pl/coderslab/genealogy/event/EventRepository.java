@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface EventRepository extends JpaRepository<Event, Long> {
     Optional<Event> findEventByPerson1AndEventType(
             Person person,
-            EventType eventType);
+            String eventType);
 }

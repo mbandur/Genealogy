@@ -24,12 +24,10 @@ public class Relation {
     private Person person1;
     @ManyToOne
     private Person person2;
-    @Enumerated(EnumType.STRING)
     @Column(name = "relation_type_1", nullable = false)
-    private RelationType relationType1;
-    @Enumerated(EnumType.STRING)
+    private String relationType1;
     @Column(name = "relation_type_2", nullable = false)
-    private RelationType relationType2;
+    private String relationType2;
     private String comments;
     @Column(name = "created_on", updatable = false)
     @JsonIgnore

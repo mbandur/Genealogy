@@ -5,9 +5,9 @@ Content-Type: application/json
 {
   "firstName": "Cezaryy",
   "secondName": "Dawid",
-  "lastName": "Bandurowicz",
+  "lastName": "Nowak",
   "sex": "M",
-  "comments": "person comments"
+  "comments": "person 1 comments"
 }
 
 ### Create person = 2
@@ -17,10 +17,10 @@ Content-Type: application/json
 {
   "firstName": "Elżbieta",
   "secondName": "Maria",
-  "lastName": "Bandurowicz",
-  "maidenName": "Kuch",
+  "lastName": "Nowak",
+  "maidenName": "Kuchta",
   "sex": "F",
-  "comments": "person comments 2"
+  "comments": "person 2 comments"
 }
 
 ### Create person = 3
@@ -29,9 +29,9 @@ Content-Type: application/json
 
 {
   "firstName": "Mariusz",
-  "lastName": "Bandurowicz",
+  "lastName": "Nowak",
   "sex": "M",
-  "comments": "person comments 3"
+  "comments": "person 3 comments"
 }
 
 ### Create person = 4
@@ -40,9 +40,9 @@ Content-Type: application/json
 
 {
   "firstName": "Damian",
-  "lastName": "Bandurowicz",
+  "lastName": "Nowak",
   "sex": "M",
-  "comments": "person comments 4"
+  "comments": "person 4 comments"
 }
 
 ### Create person = 5
@@ -51,9 +51,9 @@ Content-Type: application/json
 
 {
   "firstName": "Szczepan",
-  "lastName": "Bandurowicz",
+  "lastName": "Nowak",
   "sex": "M",
-  "comments": "person comments 5"
+  "comments": "person 5 comments"
 }
 
 ### Create person = 6
@@ -62,9 +62,10 @@ Content-Type: application/json
 
 {
   "firstName": "Wiesława",
-  "lastName": "Bandurowicz",
+  "lastName": "Nowak",
+  "maidenName": "Krud",
   "sex": "F",
-  "comments": "person comments 6"
+  "comments": "person 6 comments"
 }
 
 ### Create person = 7
@@ -73,11 +74,84 @@ Content-Type: application/json
 
 {
   "firstName": "Agnieszka",
-  "lastName": "Bandurowicz",
+  "lastName": "Dron",
+  "maidenName": "Nowak",
   "sex": "F",
-  "comments": "person comments 7"
+  "comments": "person 7 comments"
 }
 
+### Create person = 8
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Zofia",
+  "secondName": "Ewa",
+  "lastName": "Krus",
+  "maidenName": "Malek",
+  "sex": "F",
+  "comments": "person 8 comments"
+}
+
+### Create person = 9
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Wojciechk",
+  "secondName": "Jan",
+  "lastName": "Krus",
+  "sex": "M",
+  "comments": "person 9 comments"
+}
+
+### Create person = 10
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Adam",
+  "lastName": "Malek",
+  "sex": "M",
+  "comments": "person 10 comments"
+}
+
+### Create person = 11
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Janina",
+  "lastName": "Malek",
+  "maidenName": "Kazik",
+  "sex": "M",
+  "comments": "person 11 comments"
+}
+
+### Create person = 12
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Mirosław",
+  "secondName": "Tomasz",
+  "lastName": "Krus",
+  "sex": "M",
+  "comments": "person 12 comments"
+}
+
+### Create person = 13
+POST http://localhost:8080/persons
+Content-Type: application/json
+
+{
+  "firstName": "Władysława",
+  "secondName": "Anna",
+  "lastName": "Krus",
+  "maidenName": "Dąbrowska",
+  "sex": "F",
+  "comments": "person 13 comments"
+}
 
 
 ### Create relation = 1
@@ -89,7 +163,7 @@ Content-Type: application/json
   "person2": 2,
   "relationType1": "husband",
   "relationType2": "wife",
-  "comments": "relation comments 1"
+  "comments": "relation 1 comments"
 }
 
 ### Create relation = 2
@@ -101,7 +175,7 @@ Content-Type: application/json
   "person2": 3,
   "relationType1": "siblings",
   "relationType2": "siblings",
-  "comments": "relation comments"
+  "comments": "relation 2 comments"
 }
 
 ### Create relation = 3
@@ -113,7 +187,7 @@ Content-Type: application/json
   "person2": 4,
   "relationType1": "father",
   "relationType2": "children",
-  "comments": "relation comments 3"
+  "comments": "relation 3 comments"
 }
 
 ### Create relation = 4
@@ -125,7 +199,7 @@ Content-Type: application/json
   "person2": 5,
   "relationType1": "children",
   "relationType2": "father",
-  "comments": "relation comments 4"
+  "comments": "relation 4 comments"
 }
 
 ### Create relation = 5
@@ -137,7 +211,7 @@ Content-Type: application/json
   "person2": 6,
   "relationType1": "children",
   "relationType2": "mother",
-  "comments": "person comments 5"
+  "comments": "relation 5 comments"
 }
 
 ### Create relation = 6
@@ -149,7 +223,7 @@ Content-Type: application/json
   "person2": 7,
   "relationType1": "siblings",
   "relationType2": "siblings",
-  "comments": "person comments 6"
+  "comments": "relation 6 comments"
 }
 
 ### Create relation = 7
@@ -161,9 +235,92 @@ Content-Type: application/json
   "person2": 6,
   "relationType1": "children",
   "relationType2": "mother",
-  "comments": "person comments 7"
+  "comments": "relation 7 comments"
 }
 
+### Create relation = 8
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 2,
+  "person2": 4,
+  "relationType1": "mother",
+  "relationType2": "children",
+  "comments": "relation 8 comments"
+}
+
+### Create relation = 9
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 8,
+  "person2": 2,
+  "relationType1": "mother",
+  "relationType2": "children",
+  "comments": "relation 9 comments"
+}
+
+### Create relation = 10
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 9,
+  "person2": 2,
+  "relationType1": "father",
+  "relationType2": "children",
+  "comments": "relation 10 comments"
+}
+
+### Create relation = 11
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 10,
+  "person2": 8,
+  "relationType1": "father",
+  "relationType2": "children",
+  "comments": "relation 11 comments"
+}
+
+### Create relation = 12
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 11,
+  "person2": 8,
+  "relationType1": "mother",
+  "relationType2": "children",
+  "comments": "relation 12 comments"
+}
+
+### Create relation = 13
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 12,
+  "person2": 9,
+  "relationType1": "father",
+  "relationType2": "children",
+  "comments": "relation 13 comments"
+}
+
+### Create relation = 14
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 13,
+  "person2": 9,
+  "relationType1": "mother",
+  "relationType2": "children",
+  "comments": "relation 14 comments"
+}
 
 
 ### Create document = 1
@@ -197,7 +354,6 @@ Content-Type: application/json
 }
 
 
-
 ### Create event = 1
 POST http://localhost:8080/events
 Content-Type: application/json
@@ -206,7 +362,7 @@ Content-Type: application/json
   "person1": "2",
   "eventDate": "1960-12-31",
   "eventType": "BIRTH",
-  "comments": "urodzona przed up"
+  "comments": "urodzona przed update"
 }
 
 ### Create event = 2
@@ -217,5 +373,5 @@ Content-Type: application/json
   "person1": "2",
   "eventDate": "1980-12-31",
   "eventType": "DEATH",
-  "comments": "ślub przed up"
+  "comments": "ślub przed update"
 }

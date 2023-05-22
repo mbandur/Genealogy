@@ -3,6 +3,7 @@ package pl.coderslab.genealogy.event;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,12 +23,12 @@ public class EventController {
     }
 
     @PostMapping
-    public EventDTOResponse create(@RequestBody EventDTORequest eventDTORequest) {
+    public EventDTOResponse create(@Valid @RequestBody EventDTORequest eventDTORequest) {
         return eventService.create(eventDTORequest);
     }
 
     @PutMapping("/{id}")
-    public EventDTOResponse update(@PathVariable Long id, @RequestBody EventDTORequest eventDTORequest) {
+    public EventDTOResponse update(@PathVariable Long id, @Valid @RequestBody EventDTORequest eventDTORequest) {
         return eventService.update(eventDTORequest.withId(id));
     }
 
