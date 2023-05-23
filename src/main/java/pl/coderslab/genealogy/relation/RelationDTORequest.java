@@ -1,6 +1,6 @@
 package pl.coderslab.genealogy.relation;
 
-import pl.coderslab.genealogy.validation.EnumPattern;
+import pl.coderslab.genealogy.validation.ValueOfEnum;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,12 +9,11 @@ public record RelationDTORequest(
         Long id,
         @NotNull Long person1,
         @NotNull Long person2,
-        @NotNull @EnumPattern(regexp = "^M|F$", message = "Only M or F value")
-        RelationType relationType1,
-        @NotNull @EnumPattern(regexp = "^mother|father|wife|husband|children|siblings$"
-                , message = "Only: mother, father, wife, husband, children, siblings value")
-        RelationType relationType2,
-        @Size(max = 255)
+        @NotNull @ValueOfEnum(enumClass = RelationType.class)
+        String relationType1,
+        @NotNull @ValueOfEnum(enumClass = RelationType.class)
+        String relationType2,
+        @Size(max = 255, message = "Max size = 255")
         String comments
 ) {
     public RelationDTORequest withId(Long id) {

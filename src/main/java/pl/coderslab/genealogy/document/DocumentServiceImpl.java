@@ -39,23 +39,18 @@ public class DocumentServiceImpl implements DocumentService {
     public DocumentDTOResponse create(DocumentDTORequest documentDTORequest) {
         Person person1 = personRepository.findById(documentDTORequest.person1())
                 .orElseThrow(() -> ResourceNotFoundException.forId(documentDTORequest.id().toString()));
-        documentRepository.findDocumentByPerson1AndDocumentType(
-                        person1, documentDTORequest.documentType())
-                .ifPresent(s -> {
-                            throw ResourceAlreadyExistException.forId(
-                                    s.getId().toString());
-                        }
-                );
-        Document documentToSave = documentMapper.mapFromDocumentDTORequest(documentDTORequest, person1);
-        Document document = documentRepository.save(documentToSave);
-        return documentMapper.mapToDocumentDTO(document);
-    }
 
-    @Override
-    @Transactional
-    public DocumentDTOResponse update(DocumentDTORequest documentDTORequest) {
-        Person person1 = personRepository.findById(documentDTORequest.person1()).orElseThrow(() -> ResourceNotFoundException.forId(documentDTORequest.id().toString()));
-        documentRepository.findById(documentDTORequest.id()).orElseThrow(() -> ResourceNotFoundException.forId(documentDTORequest.id().toString()));
+        if (documentDTORequest.documentType().equals("BIRTH_CERTIFICATE")
+                || documentDTORequest.documentType().equals("DEATH_CERTIFICATE")
+        ) {
+            documentRepository.findDocumentByPerson1AndDocumentType(
+                            person1, documentDTORequest.documentType())
+                    .ifPresent(s -> {
+                                throw ResourceAlreadyExistException.forId(
+                                        s.getId().toString());
+                            }
+                    );
+        }
         Document documentToSave = documentMapper.mapFromDocumentDTORequest(documentDTORequest, person1);
         Document document = documentRepository.save(documentToSave);
         return documentMapper.mapToDocumentDTO(document);

@@ -8,11 +8,11 @@ import javax.validation.constraints.Size;
 
 public record PersonDTO(
         Long id,
-        @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż-]{3,20}$", message = "must match A-Ż between 3 and 20 characters}")
+        @NotNull @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż]{3,20}$", message = "must match A-Ż between 3 and 20 characters}")
         String firstName,
-        @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż-]{3,20}$", message = "must match A-Ż between 3 and 20 characters}")
+        @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż]{3,20}$", message = "must match A-Ż between 3 and 20 characters}")
         String secondName,
-        @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż-]{3,20}$", message = "must match A-Ż between 3 and 20 characters}")
+        @NotNull @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż-]{3,20}$", message = "must match A-Ż between 3 and 20 characters}")
         String lastName,
         @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻa-ząćęłńóśźż-]{3,20}$", message = "must match A-Ż between 3 and 20 characters}")
         String maidenName,

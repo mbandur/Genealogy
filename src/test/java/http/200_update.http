@@ -8,36 +8,3 @@ Content-Type: application/json
   "sex": "M",
   "comments": "person 1 comments update"
 }
-
-### Update relation = 2
-PUT http://localhost:8080/relations/2
-Content-Type: application/json
-
-{
-  "person1": 1,
-  "person2": 3,
-  "relationType1": "father",
-  "relationType2": "children",
-  "comments": "relation 2 comments"
-}
-
-### Update document = 2
-PUT http://localhost:8080/documents/2
-Content-Type: application/json
-
-{
-  "person1": "2",
-  "documentType": "MARRIAGE_CERTIFICATE",
-  "comments": "akt małżeństwa po up"
-}
-
-### Update events = 2
-PUT http://localhost:8080/events/2
-Content-Type: application/json
-
-{
-  "person1": "2",
-  "eventType": "MARRIAGE",
-  "comments": "ślub po up",
-  "eventDate": "2020-01-02"
-}

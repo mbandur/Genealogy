@@ -27,11 +27,6 @@ public class DocumentController {
         return documentService.create(documentDTORequest);
     }
 
-    @PutMapping("/{id}")
-    public DocumentDTOResponse update(@PathVariable Long id, @Valid @RequestBody DocumentDTORequest documentDTORequest) {
-        return documentService.update(documentDTORequest.withId(id));
-    }
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         documentService.delete(id);

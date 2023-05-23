@@ -59,16 +59,6 @@ public class RelationServiceImpl implements RelationService {
     }
 
     @Override
-    public RelationDTOResponse update(RelationDTORequest relationDTORequest) {
-        Person person1 = personRepository.findById(relationDTORequest.person1()).orElseThrow(() -> ResourceNotFoundException.forId(relationDTORequest.id().toString()));
-        Person person2 = personRepository.findById(relationDTORequest.person2()).orElseThrow(() -> ResourceNotFoundException.forId(relationDTORequest.id().toString()));
-        relationRepository.findById(relationDTORequest.id()).orElseThrow(() -> ResourceNotFoundException.forId(relationDTORequest.id().toString()));
-        Relation relationToSave = relationMapper.mapFromRelationDTORequest(relationDTORequest, person1, person2);
-        Relation relation = relationRepository.save(relationToSave);
-        return relationMapper.mapToRelationDTOResponse(relation);
-    }
-
-    @Override
     public boolean delete(Long id) {
         relationRepository.findById(id)
                 .ifPresentOrElse(

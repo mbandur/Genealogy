@@ -45,4 +45,9 @@ public class CustomError {
         this.code = resourceAlreadyExistException.getErrorCode();
         this.message = resourceAlreadyExistException.getLocalizedMessage();
     }
+    public CustomError(BadDateFormatException badDateFormatException) {
+        this();
+        this.code = badDateFormatException.getErrorCode();
+        this.message = badDateFormatException.getLocalizedMessage();
+    }
 }

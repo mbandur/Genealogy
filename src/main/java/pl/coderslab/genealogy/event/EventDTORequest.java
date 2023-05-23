@@ -4,12 +4,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import pl.coderslab.genealogy.validation.ValueOfEnum;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 public record EventDTORequest(
         Long id,
         @NotNull Long person1,
+        @NotNull
+        @PastOrPresent
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         LocalDate eventDate,
         @NotNull

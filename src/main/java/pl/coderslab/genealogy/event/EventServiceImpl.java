@@ -24,6 +24,7 @@ public class EventServiceImpl implements EventService {
                 .map(eventMapper::mapToEventDTO)
                 .orElseThrow(() -> ResourceNotFoundException.forId(id.toString()));
     }
+
     @Override
     public List<EventDTOResponse> findAll() {
         return eventRepository.findAll().stream()
@@ -34,21 +35,17 @@ public class EventServiceImpl implements EventService {
     @Override
     public EventDTOResponse create(EventDTORequest eventDTORequest) {
         Person person1 = personRepository.findById(eventDTORequest.person1()).orElseThrow(() -> ResourceNotFoundException.forId(eventDTORequest.id().toString()));
-        eventRepository.findEventByPerson1AndEventType(
-                        person1, eventDTORequest.eventType())
-                .ifPresent(s -> {
-                            throw ResourceAlreadyExistException.forId(
-                                    s.getId().toString());
-                        }
-                );
-        Event eventToSave = eventMapper.mapFromEventDTORequest(eventDTORequest, person1);
-        Event event = eventRepository.save(eventToSave);
-        return eventMapper.mapToEventDTO(event);
-    }
 
-    public EventDTOResponse update(EventDTORequest eventDTORequest) {
-        Person person1 = personRepository.findById(eventDTORequest.person1()).orElseThrow(() -> ResourceNotFoundException.forId(eventDTORequest.id().toString()));
-        eventRepository.findById(eventDTORequest.id()).orElseThrow(() -> ResourceNotFoundException.forId(eventDTORequest.id().toString()));
+        if (eventDTORequest.eventType().equals("BIRTH")
+                || eventDTORequest.eventType().equals("DEATH")) {
+            eventRepository.findEventByPerson1AndEventType(
+                            person1, eventDTORequest.eventType())
+                    .ifPresent(s -> {
+                                throw ResourceAlreadyExistException.forId(
+                                        s.getId().toString());
+                            }
+                    );
+        }
         Event eventToSave = eventMapper.mapFromEventDTORequest(eventDTORequest, person1);
         Event event = eventRepository.save(eventToSave);
         return eventMapper.mapToEventDTO(event);

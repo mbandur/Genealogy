@@ -27,11 +27,6 @@ public class RelationController {
         return relationService.create(relationDTORequest);
     }
 
-    @PutMapping("/{id}")
-    public RelationDTOResponse update(@PathVariable Long id, @Valid @RequestBody RelationDTORequest relationDTORequest) {
-        return relationService.update(relationDTORequest.withId(id));
-    }
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         relationService.delete(id);

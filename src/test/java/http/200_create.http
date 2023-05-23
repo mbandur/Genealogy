@@ -330,7 +330,7 @@ Content-Type: application/json
 {
   "person1": "2",
   "documentType": "BIRTH_CERTIFICATE",
-  "comments": "akt urodzenia"
+  "comments": "BIRTH_CERTIFICATE"
 }
 
 ### Create document = 2
@@ -340,7 +340,7 @@ Content-Type: application/json
 {
   "person1": "2",
   "documentType": "DEATH_CERTIFICATE",
-  "comments": "akt małżeństwa przed up"
+  "comments": "DEATH_CERTIFICATE"
 }
 
 ### Create document = 3
@@ -350,9 +350,58 @@ Content-Type: application/json
 {
   "person1": "2",
   "documentType": "ID_DOCUMENT",
-  "comments": "koperta dowodowa"
+  "comments": "first ID"
 }
 
+### Create document = 3
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "ID_DOCUMENT",
+  "comments": "second ID"
+}
+
+### Create document = 5
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "MARRIAGE_CERTIFICATE",
+  "comments": "first MARRIAGE_CERTIFICATE"
+}
+
+### Create document = 6
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "MARRIAGE_CERTIFICATE",
+  "comments": "second MARRIAGE_CERTIFICATE"
+}
+
+### Create document = 7
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "OTHER_DOCUMENT",
+  "comments": "first OTHER_DOCUMENT"
+}
+
+### Create document = 8
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "OTHER_DOCUMENT",
+  "comments": "second OTHER_DOCUMENT"
+}
 
 ### Create event = 1
 POST http://localhost:8080/events
@@ -362,7 +411,7 @@ Content-Type: application/json
   "person1": "2",
   "eventDate": "1960-12-31",
   "eventType": "BIRTH",
-  "comments": "urodzona przed update"
+  "comments": "BIRTH"
 }
 
 ### Create event = 2
@@ -371,7 +420,29 @@ Content-Type: application/json
 
 {
   "person1": "2",
-  "eventDate": "1980-12-31",
+  "eventDate": "1990-12-31",
   "eventType": "DEATH",
-  "comments": "ślub przed update"
+  "comments": "DEATH"
+}
+
+### Create event = 3
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "person1": "3",
+  "eventDate": "1980-12-31",
+  "eventType": "MARRIAGE",
+  "comments": "first MARRIAGE"
+}
+
+### Create event = 4
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "person1": "3",
+  "eventDate": "1985-12-31",
+  "eventType": "MARRIAGE",
+  "comments": "second MARRIAGE"
 }

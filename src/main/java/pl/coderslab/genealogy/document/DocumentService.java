@@ -7,8 +7,6 @@ public interface DocumentService {
 
     List<DocumentDTOResponse> findAll();
 
-    DocumentDTOResponse update(DocumentDTORequest document);
-
     DocumentDTOResponse create(DocumentDTORequest document);
 
     boolean delete(Long id);

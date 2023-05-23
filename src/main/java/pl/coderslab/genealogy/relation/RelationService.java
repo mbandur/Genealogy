@@ -7,8 +7,6 @@ public interface RelationService {
 
     List<RelationDTOResponse> findAll();
 
-    RelationDTOResponse update(RelationDTORequest relationDTORequest);
-
     RelationDTOResponse create(RelationDTORequest relationDTORequest);
 
     boolean delete(Long id);

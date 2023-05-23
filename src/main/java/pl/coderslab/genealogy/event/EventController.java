@@ -27,11 +27,6 @@ public class EventController {
         return eventService.create(eventDTORequest);
     }
 
-    @PutMapping("/{id}")
-    public EventDTOResponse update(@PathVariable Long id, @Valid @RequestBody EventDTORequest eventDTORequest) {
-        return eventService.update(eventDTORequest.withId(id));
-    }
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         eventService.delete(id);

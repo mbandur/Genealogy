@@ -9,6 +9,17 @@ Content-Type: application/json
   "relationType2": "wife"
 }
 
+### Create next relation 2 to 1
+POST http://localhost:8080/relations
+Content-Type: application/json
+
+{
+  "person1": 2,
+  "person2": 1,
+  "relationType1": "husband",
+  "relationType2": "wife"
+}
+
 ### Create next relation 1 to 1
 POST http://localhost:8080/relations
 Content-Type: application/json
@@ -20,17 +31,27 @@ Content-Type: application/json
   "relationType2": "wife"
 }
 
-### Crete next same document = 2
+### Crete next same document for person id = 2
 POST http://localhost:8080/documents
 Content-Type: application/json
 
 {
   "person1": "2",
   "documentType": "BIRTH_CERTIFICATE",
-  "comments": "akt urodzenia"
+  "comments": "second BIRTH_CERTIFICATE"
 }
 
-### Create next same event = 1
+### Crete next same document for person id = 2
+POST http://localhost:8080/documents
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "documentType": "DEATH_CERTIFICATE",
+  "comments": "second DEATH_CERTIFICATE"
+}
+
+### Create next same event person id = 2
 POST http://localhost:8080/events
 Content-Type: application/json
 
@@ -38,5 +59,16 @@ Content-Type: application/json
   "person1": "2",
   "eventDate": "1960-12-31",
   "eventType": "BIRTH",
-  "comments": "urodzona przed up"
+  "comments": "second BIRTH"
+}
+
+### Create next same event person id = 2
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+  "person1": "2",
+  "eventDate": "1960-12-31",
+  "eventType": "DEATH",
+  "comments": "second DEATH"
 }
