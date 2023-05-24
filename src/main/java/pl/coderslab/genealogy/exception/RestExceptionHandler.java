@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 @RestControllerAdvice
 public class RestExceptionHandler {
@@ -32,5 +33,10 @@ public class RestExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<CustomError> handleHttpMessageNotReadableException(HttpMessageNotReadableException httpMessageNotReadableException) {
         return new ResponseEntity<>(new CustomError(new BadDateFormatException("Invalid date format in eventDate. Must match: yyyy-MM-dd")), HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<CustomError> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException methodArgumentTypeMismatchException) {
+        return new ResponseEntity<>(new CustomError(new BadParamFormatException("Invalid param format")), HttpStatus.CONFLICT);
     }
 }

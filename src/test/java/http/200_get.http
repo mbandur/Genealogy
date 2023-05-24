@@ -24,3 +24,10 @@ GET http://localhost:8080/events/1
 
 ### Get all events
 GET http://localhost:8080/events
+
+
+### Get ancestors for personId = 4 and personId = 2
+GET http://localhost:8080/ancestors/4/2/3
+
+### Get all information about person = 1
+GET http://localhost:8080/report/2

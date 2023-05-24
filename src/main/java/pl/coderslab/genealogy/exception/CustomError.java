@@ -50,4 +50,9 @@ public class CustomError {
         this.code = badDateFormatException.getErrorCode();
         this.message = badDateFormatException.getLocalizedMessage();
     }
+    public CustomError(BadParamFormatException badParamFormatException) {
+        this();
+        this.code = badParamFormatException.getErrorCode();
+        this.message = badParamFormatException .getLocalizedMessage();
+    }
 }
