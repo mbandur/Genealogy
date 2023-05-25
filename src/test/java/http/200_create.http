@@ -353,7 +353,7 @@ Content-Type: application/json
   "comments": "first ID"
 }
 
-### Create document = 3
+### Create document = 4
 POST http://localhost:8080/documents
 Content-Type: application/json
 

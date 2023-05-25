@@ -2,15 +2,14 @@ package pl.coderslab.genealogy.relation;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import pl.coderslab.genealogy.person.Person;
 
 import java.util.List;
 
 public interface RelationRepository extends JpaRepository<Relation, Long> {
 
-    @Query("select r from Relation r where r.person1 =?1")
-    List<Relation> findRelationsById(Person personEntity);
+    @Query(value = "select * from relations where person1_id =?1", nativeQuery = true)
+    List<Relation> findRelationsByPerson1Id(Long personId);
 
-    @Query("select r from Relation r where r.person2 =?1")
-    List<Relation> findRelationsById2(Person personEntity);
+    @Query(value = "select * from relations where person2_id =?1", nativeQuery = true)
+    List<Relation> findRelationsByPerson2Id(Long personId);
 }

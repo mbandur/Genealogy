@@ -16,8 +16,8 @@ public class DivideRelationsServiceImpl implements DivideRelationsService {
     private final DivideRelationsMapper divideRelationsMapper;
 
     public List<DivideRelationsDTO> findAllRelationsByPerson(Person person) {
-        List<Relation> relationsByPerson1 = relationRepository.findRelationsById(person);
-        List<Relation> relationsByPerson2 = relationRepository.findRelationsById2(person);
+        List<Relation> relationsByPerson1 = relationRepository.findRelationsByPerson1Id(person.getId());
+        List<Relation> relationsByPerson2 = relationRepository.findRelationsByPerson2Id(person.getId());
         List<DivideRelationsDTO> listDividerelationsDTO = new ArrayList<>();
         listDividerelationsDTO.addAll(divideRelationsMapper.mapToDTO1(relationsByPerson1));
         listDividerelationsDTO.addAll(divideRelationsMapper.mapToDTO2(relationsByPerson2));
