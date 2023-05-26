@@ -5,8 +5,8 @@ import pl.coderslab.genealogy.person.Person;
 import javax.validation.constraints.NotBlank;
 
 public record DivideRelationsDTO(
-        @NotBlank Person person1,
-        @NotBlank Person person2,
-        @NotBlank String relationType1
+        Person person1,
+        Person person2,
+        String relationType1
 ) {
 }

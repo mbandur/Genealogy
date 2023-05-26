@@ -9,6 +9,8 @@ import pl.coderslab.genealogy.event.EventRepository;
 import pl.coderslab.genealogy.exception.ResourceNotFoundException;
 import pl.coderslab.genealogy.divide_relations.DivideRelationsDTO;
 import pl.coderslab.genealogy.divide_relations.DivideRelationsService;
+import pl.coderslab.genealogy.name_nationality.CountriesDTO;
+import pl.coderslab.genealogy.name_nationality.NameNationalityService;
 import pl.coderslab.genealogy.person.PersonDTO;
 import pl.coderslab.genealogy.person.Person;
 import pl.coderslab.genealogy.person.PersonMapper;
@@ -29,6 +31,7 @@ public class PersonReportServiceImpl implements PersonReportService {
     private final DivideRelationsService divideRelationsService;
     private final PersonReportMapper personReportMapper;
     private final PersonMapper personMapper;
+    private final NameNationalityService nameNationalityService;
 
     public PersonReportDTO findAllDataByPersonId(Long id) {
         Person person = personRepository.findById(id).orElseThrow(() -> ResourceNotFoundException.forId(id.toString()));
@@ -44,6 +47,7 @@ public class PersonReportServiceImpl implements PersonReportService {
         List<EventPersonReportDTO> eventsReportDTO = personReportMapper.mapToEventReportDTO(events);
         Map<String, Set<PersonDTO>> relationsMapDTO = personReportMapper.mapToRelationsMapDTO(relationsMap);
         PersonDTO personDTO = personMapper.mapToPersonDTO(person);
-        return new PersonReportDTO(personDTO, documentsReportDTO, eventsReportDTO, relationsMapDTO);
+        CountriesDTO countriesDTO = nameNationalityService.getNameNationality(person.getFirstName());
+        return new PersonReportDTO(personDTO, documentsReportDTO, eventsReportDTO, relationsMapDTO, countriesDTO);
     }
 }

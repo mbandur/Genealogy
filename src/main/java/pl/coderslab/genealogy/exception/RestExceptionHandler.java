@@ -32,7 +32,7 @@ public class RestExceptionHandler {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<CustomError> handleHttpMessageNotReadableException(HttpMessageNotReadableException httpMessageNotReadableException) {
-        return new ResponseEntity<>(new CustomError(new BadDateFormatException("Invalid date format in eventDate. Must match: yyyy-MM-dd")), HttpStatus.CONFLICT);
+        return new ResponseEntity<>(new CustomError(new BadDateFormatException("Invalid data format")), HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)

@@ -1,6 +1,7 @@
 package pl.coderslab.genealogy.person_report;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import pl.coderslab.genealogy.name_nationality.CountriesDTO;
 import pl.coderslab.genealogy.person.PersonDTO;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public record PersonReportDTO(
         @Schema(description = "List of all Events.")
         List<EventPersonReportDTO> eventsReportDTO,
         @Schema(description = "List of all Relations")
-        Map<String, Set<PersonDTO>> relationsMapDTO
+        Map<String, Set<PersonDTO>> relationsMapDTO,
+        @Schema(description = "List of country with name nationality probability")
+        CountriesDTO countriesDTO
 ) {
 }

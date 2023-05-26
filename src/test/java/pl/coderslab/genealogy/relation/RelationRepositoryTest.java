@@ -9,14 +9,12 @@ import org.springframework.test.context.jdbc.Sql;
 import pl.coderslab.genealogy.document.DocumentRepository;
 import pl.coderslab.genealogy.event.EventRepository;
 import pl.coderslab.genealogy.person.PersonRepository;
-import pl.coderslab.genealogy.relation.Relation;
-import pl.coderslab.genealogy.relation.RelationRepository;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@ActiveProfiles("dev-local")
+@ActiveProfiles("unit-test")
 @DataJpaTest
 @Sql(scripts = "/start.sql")
 class RelationRepositoryTest {
