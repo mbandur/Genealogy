@@ -1,0 +1,11 @@
+### Delete relation = 4
+DELETE http://localhost:8080/relations/4
+
+### Delete document = 4
+DELETE http://localhost:8080/documents/4
+
+### Delete events = 4
+DELETE http://localhost:8080/events/4
+
+### Delete person = 5
+DELETE http://localhost:8080/persons/5

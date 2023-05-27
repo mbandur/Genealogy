@@ -31,3 +31,6 @@ GET http://localhost:8080/ancestors/4/2/3
 
 ### Get all information about person = 1
 GET http://localhost:8080/report/2
+
+### Get name nationality probability - name: mariusz
+GET http://localhost:8080/nationalityname/mariusz
