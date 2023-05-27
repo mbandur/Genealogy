@@ -17,9 +17,12 @@ import java.util.List;
 @RequestMapping("/ancestors")
 public class PersonCommonAncestorsController {
     private final PersonCommonAncestorsService personCommonAncestorsService;
+
     @Operation(summary = "Find common ancestors for person1 and person2", description = "Returns list of ancestors", tags = {"commonancestors"})
     @GetMapping("/{id1}/{id2}/{range}")
-    public List<PersonDTO> find(@PathVariable Long id1, @PathVariable Long id2,  @PathVariable Long range) {
-        return personCommonAncestorsService.find(id1, id2, range);
+    public List<PersonDTO> find(@PathVariable Long id1, @PathVariable Long id2, @PathVariable Long range) {
+        List<PersonDTO> personDTOList = personCommonAncestorsService.find(id1, id2, range);
+        log.debug("Finded common Ancestors: {}", personDTOList);
+        return personDTOList;
     }
 }

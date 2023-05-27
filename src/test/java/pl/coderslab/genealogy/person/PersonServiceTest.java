@@ -4,11 +4,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ActiveProfiles("unit-test")
 class PersonServiceTest {
     @Autowired
     PersonRepository personRepository;
