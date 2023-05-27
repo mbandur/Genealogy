@@ -21,7 +21,7 @@ public class DocumentController {
     @GetMapping("/{id}")
     public DocumentDTOResponse find(@PathVariable Long id) {
         DocumentDTOResponse documentDTOResponse = documentService.find(id);
-        log.debug("Finded Document: {}", documentDTOResponse);
+        log.debug("Finded Document id: {}", id);
         return documentDTOResponse;
     }
 
@@ -29,7 +29,7 @@ public class DocumentController {
     @GetMapping
     public List<DocumentDTOResponse> findAll() {
         List<DocumentDTOResponse> documentDTOResponseList = documentService.findAll();
-        log.debug("Finded all Documents: {}", documentDTOResponseList);
+        log.debug("Finded all Documents: {}", documentDTOResponseList.size());
         return documentDTOResponseList;
     }
 
@@ -37,7 +37,7 @@ public class DocumentController {
     @PostMapping
     public ResponseEntity<DocumentDTOResponse> create(@Valid @RequestBody DocumentDTORequest documentDTORequest) {
         DocumentDTOResponse documentDTOResponse = documentService.create(documentDTORequest);
-        log.debug("Created Document: {}", documentDTOResponse);
+        log.debug("Created Document id: {}", documentDTOResponse.id());
         return new ResponseEntity<>(documentDTOResponse, HttpStatus.CREATED);
     }
 

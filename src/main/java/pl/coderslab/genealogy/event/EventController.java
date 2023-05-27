@@ -21,7 +21,7 @@ public class EventController {
     @GetMapping("/{id}")
     public EventDTOResponse find(@PathVariable Long id) {
         EventDTOResponse eventDTOResponse = eventService.find(id);
-        log.debug("Finded Event: {}", eventDTOResponse);
+        log.debug("Finded Event id: {}", id);
         return eventDTOResponse;
     }
 
@@ -29,7 +29,7 @@ public class EventController {
     @GetMapping
     public List<EventDTOResponse> findAll() {
         List<EventDTOResponse> eventDTOResponseList = eventService.findAll();
-        log.debug("Finded all Events: {}", eventDTOResponseList);
+        log.debug("Finded all Events: {}", eventDTOResponseList.size());
         return eventDTOResponseList;
     }
 
@@ -37,7 +37,7 @@ public class EventController {
     @PostMapping
     public ResponseEntity<EventDTOResponse> create(@Valid @RequestBody EventDTORequest eventDTORequest) {
         EventDTOResponse eventDTOResponse = eventService.create(eventDTORequest);
-        log.debug("Deleted Event: {}", eventDTOResponse);
+        log.debug("Created Event: {}", eventDTOResponse.id());
         return new ResponseEntity<>(eventDTOResponse, HttpStatus.CREATED);
     }
 

@@ -20,7 +20,7 @@ public class RelationController {
     @GetMapping("/{id}")
     public RelationDTOResponse find(@PathVariable Long id) {
         RelationDTOResponse relationDTOResponse =  relationService.find(id);
-        log.debug("Finded Relation: {}", relationDTOResponse);
+        log.debug("Finded Relation id: {}", id);
         return relationDTOResponse;
     }
 
@@ -28,7 +28,7 @@ public class RelationController {
     @GetMapping
     public List<RelationDTOResponse> findAll() {
         List<RelationDTOResponse> relationDTOResponseList = relationService.findAll();
-        log.debug("Finded all Relations: {}", relationDTOResponseList);
+        log.debug("Finded all Relations: {}", relationDTOResponseList.size());
         return relationDTOResponseList;
     }
 
@@ -36,7 +36,7 @@ public class RelationController {
     @PostMapping
     public ResponseEntity<RelationDTOResponse> create(@Valid @RequestBody RelationDTORequest relationDTORequest) {
         RelationDTOResponse relationDTOResponse = relationService.create(relationDTORequest);
-        log.debug("Deleted Relation: {}", relationDTOResponse);
+        log.debug("Created Relation: {}", relationDTOResponse.id());
         return new ResponseEntity<>(relationDTOResponse, HttpStatus.CREATED);
     }
 
